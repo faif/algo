@@ -1,2 +1,2 @@
 # algo
-Implementation of common algorithms
+Implementation of common algorithms, mainly in Python
