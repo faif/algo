@@ -22,4 +22,4 @@ def my_max(items):
 
 my_items = (10, 5, 18, 4)
 print('my_items: {}'.format(my_items))
-print("Max of my_items = {}".format(my_max(my_items)))
+print("Max of my_items = {}".format(my_max(items=my_items)))

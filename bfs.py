@@ -1,19 +1,5 @@
 from collections import deque
 
-# https://upload.wikimedia.org/wikipedia/commons/a/ad/MapGermanyGraph.svg
-cities = {
-    'Frankfurt': ['Mannheim', 'Wurzburg', 'Kassel'],
-    'Mannheim': ['Karlsruhe'],
-    'Karlsruhe': ['Augsburg'],
-    'Augsburg': ['Munchen'],
-    'Wurzburg': ['Erfurt', 'Nurnberg'],
-    'Nurnberg': ['Stuttgart', 'Munchen'],
-    'Kassel': ['Munchen'],
-    'Erfurt': [],
-    'Stuttgart': [],
-    'Munchen': []
-}
-
 
 def bfs(graph, start, end):
     """
@@ -25,7 +11,7 @@ def bfs(graph, start, end):
     :return: list of nodes if a path is found; None otherwise
     """
     if start not in graph:
-        raise RuntimeError('unknown start node: {}'.format(start))
+        raise RuntimeError('Unknown start node: {}'.format(start))
     search_queue = deque()
     search_queue += graph[start]
     searched = [start]
@@ -39,10 +25,24 @@ def bfs(graph, start, end):
     return None
 
 
-beginning, destination = 'Frankfurt', 'Karlsruhe'
+# treat https://upload.wikimedia.org/wikipedia/commons/a/ad/MapGermanyGraph.svg as a DAG
+cities = {
+    'Frankfurt': ['Mannheim', 'Wurzburg', 'Kassel'],
+    'Mannheim': ['Karlsruhe'],
+    'Karlsruhe': ['Augsburg'],
+    'Augsburg': ['Munchen'],
+    'Wurzburg': ['Erfurt', 'Nurnberg'],
+    'Nurnberg': ['Stuttgart', 'Munchen'],
+    'Kassel': ['Munchen'],
+    'Erfurt': [],
+    'Stuttgart': [],
+    'Munchen': []
+}
+
+beginning, destination = 'Frankfurt', 'Munchen'
 path = bfs(graph=cities, start=beginning, end=destination)
 if path:
-    print('Number of hops between {} -> {} ='.format(beginning, destination), len(path))
+    print('Number of hops of {} -> {} ='.format(beginning, destination), len(path))
     print('Path of {} -> {}'.format(beginning, destination), path)
 else:
     print('No path found for {} -> {}'.format(beginning, destination))

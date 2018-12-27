@@ -1,5 +1,6 @@
 gcd_cache = dict()
 
+
 def gcd_ef(m, n):
     assert m > 0 and n > 0, 'all inputs must be > 0'
     if m < n:
@@ -15,6 +16,7 @@ def gcd_ef(m, n):
     gcd_cache[key] = result
     return result
 
+
 def gcd(m, n):
     assert m > 0 and n > 0, 'all inputs must be > 0'
     if m < n:
@@ -24,6 +26,7 @@ def gcd(m, n):
         return n
     m, n = n, r
     return gcd(m, n)
+
 
 def gcd_min_vars(m, n):
     assert m > 0 and n > 0, 'all inputs must be > 0'
@@ -35,8 +38,10 @@ def gcd_min_vars(m, n):
         return m
     return gcd_min_vars(m, n)
 
+
 if __name__ == '__main__':
     from timeit import Timer
+
     m, n = 119, 544
     t = Timer('gcd({}, {})'.format(m, n), 'from __main__ import gcd')
     print('gcd({}, {}) = {}, duration: {}'.format(m, n, gcd(m, n), t.timeit()))
