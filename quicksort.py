@@ -5,7 +5,7 @@ def quicksort(items):
     """
     Sort items using quicksort
 
-    :param items: The input sequence (remains unmodified)
+    :param items: The input sequence
     :return: A sorted tuple with the same contents as items
     """
     if len(items) < 2:

@@ -2,13 +2,13 @@ def selection_sort(items):
     """
     Sort items using selection sort
 
-    :param items: The input sequence (remains unmodified)
+    :param items: The input sequence; modified in-place
     :return: A sorted list with the same contents as items
     """
-    sorted_items, items_copy = list(), list(items)
+    sorted_items = list()
     for _ in range(len(items)):
-        min_idx = min_index(items=items_copy)
-        sorted_items.append(items_copy.pop(min_idx))
+        min_idx = min_index(items=items)
+        sorted_items.append(items.pop(min_idx))
     return sorted_items
 
 
@@ -34,7 +34,7 @@ def min_index(items):
     return min_idx
 
 
-my_items = (19, 14, -5, 28, 93, 4, 7)
+my_items = [19, 14, -5, 28, 93, 4, 7]
 print('my_items: {}'.format(my_items))
 my_sorted_items = selection_sort(items=my_items)
 print('my_sorted_items: {}'.format(my_sorted_items))
