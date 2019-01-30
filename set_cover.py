@@ -33,6 +33,6 @@ friends = {
 
 clique = set_covering(full_set=people, connections=friends)
 if clique:
-    print('Clique of people: {}'.format(clique))
+    print('Largest clique of people: {}'.format(clique))
 else:
     print('No clique of people found')
