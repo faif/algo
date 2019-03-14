@@ -1,2 +1,6 @@
 # algo
-Implementation of common algorithms, mainly in Python
+Implementation of common algorithms in different programming languages
+
+Resources used:
+* Grokking Algorithms
+* Classic Computer Science Problems in Swift
